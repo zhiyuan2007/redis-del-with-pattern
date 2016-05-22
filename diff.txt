@@ -34,8 +34,3 @@ diff -r redis-3.0.5/src/db.c temp/redis-3.0.5/src/db.c
 >             deleted++;
 305d291
 <         dictReleaseIterator(di);
-diff -r redis-3.0.5/src/redis.c temp/redis-3.0.5/src/redis.c
-174c174
-<     {"zincrby",zincrbyCommand,-4,"wmF",0,NULL,1,1,1,0,0},
----
->     {"zincrby",zincrbyCommand,4,"wmF",0,NULL,1,1,1,0,0},
