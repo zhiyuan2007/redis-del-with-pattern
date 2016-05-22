@@ -1,3 +1,33 @@
-redis del command support pattern
-such as
-del abc*
+del all keys matching pattern
+example:
+127.0.0.1:6379> set 1.com 1
+OK
+127.0.0.1:6379> set 2.com 2
+OK
+127.0.0.1:6379> set 3.com 3
+OK
+127.0.0.1:6379> set 1.cn 1
+OK
+127.0.0.1:6379> set 2.cn 2
+OK
+127.0.0.1:6379> del *.com
+(integer) 3
+127.0.0.1:6379> keys *
+1) "1.cn"
+2) "2.cn"
+127.0.0.1:6379> set 1.cn.com 1
+OK
+127.0.0.1:6379> set 1.cn.net 2
+OK
+127.0.0.1:6379> set 1.cn.org 3
+OK
+127.0.0.1:6379> del 1.cn.*
+(integer) 3
+127.0.0.1:6379> keys *
+1) "1.cn"
+2) "2.cn"
+127.0.0.1:6379> del [12].cn
+(integer) 2
+127.0.0.1:6379> keys *
+(empty list or set)
+
