@@ -1,0 +1,3 @@
+redis del command support pattern
+such as
+del abc*
